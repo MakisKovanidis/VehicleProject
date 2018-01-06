@@ -23,11 +23,12 @@ class Advertisement extends Model
         'wheels_size',
         'description',
         'price',
+        'user_id',
     ];
 
 
     public function photos(){
-        return $this->hasMany('App\Models\Photo');
+        return $this->hasMany('App\Photo');
     }
 
     public function user(){
