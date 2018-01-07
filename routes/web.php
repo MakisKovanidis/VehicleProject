@@ -21,6 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('advertisements','AdvertisementsController');
 
-Route::resource('photos','PhotosControllers');
 
 Route::resource('myAdvertisements','myAdvertisementsController');
