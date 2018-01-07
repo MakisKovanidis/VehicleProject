@@ -64,11 +64,11 @@ class myAdvertisementsController extends Controller
                 'user_id' => Auth::user()->id
             ]);
             if ($advertisement) {
-                return redirect()->route('myAdvertisements.show', ['advertisement' => $advertisement->id])
-                    ->with('success', 'H Αγγελια καταχωρήθηκε επιτυχως');
+                return redirect()->route('myAdvertisements.show',['advertisement'=>$advertisement]);
+                    /*->with('success', 'H Αγγελια καταχωρήθηκε επιτυχως');*/
             }
         }
-        return back()->withInput()->with('errors','Προβλημα στην καραχωρηση της αγγελιας ');
+      /*  return back()->withInput()->with('errors','Προβλημα στην καραχωρηση της αγγελιας ');*/
     }
 
     /**
@@ -94,7 +94,6 @@ class myAdvertisementsController extends Controller
 
     {
         $advertisement=Advertisement::find($advertisement->id);
-
         return view('myAdvertisements.edit',['advertisement'=>$advertisement]);
         //
     }
@@ -109,6 +108,31 @@ class myAdvertisementsController extends Controller
     public function update(Request $request, Advertisement $advertisement)
     {
         //
+        $advertisementUpdate= Advertisement::where('id',$advertisement->id)
+            ->update([
+                'title'=>$request->input('title'),
+                'brand'=>$request->input('brand'),
+                'model'=>$request->input('model'),
+                'year'=>$request->input('year'),
+                'month'=>$request->input('month'),
+                'kilometers'=>$request->input('kilometers'),
+                'alarm_system'=>$request->input('alarm_system'),
+                'aluminium_wheels'=>$request->input('aluminium_wheels'),
+                'multimedia_system'=>$request->input('multimedia_system'),
+                'fog_lights'=>$request->input('fog_lights'),
+                'abs'=>$request->input('abs'),
+                'esp'=>$request->input('esp'),
+                'parking_system'=>$request->input('parking_system'),
+                'wheels_size'=>$request->input('wheels_size'),
+                'description'=>$request->input('description'),
+                'price'=>$request->input('price')
+            ]);
+        if($advertisementUpdate){
+            return redirect()->route('advertisements.show', ['advertisement'=>$advertisement->id])
+                ->with('success','H Αγγελια τροποποίηθηκε επιτυχως');
+        }
+        //redirect
+        return back()->withInput();
     }
 
     /**
