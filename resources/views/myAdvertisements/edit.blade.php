@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="row col-md-12 col-lg-12 col-sm-12">
-    <form method="post" action="{{route('advertisements.update',[$advertisement->id])}}">
+    <form method="post" action="{{route('myAdvertisements.update',[$advertisement->id])}}">
                     {{ csrf_field() }}
 
                     <input type="hidden" name="_method" value="put">

@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row col-md-12 col-lg-12 col-sm-12">
+    <div class="row col-md-12 col-lg-12 col-sm-12 bg-primary table-bordered">
         <tr>
-            <td colspan="4" backround="yellow">
-                <h1>ΚΑΤΑΧΩΡΗΣΗ ΑΓΓΕΛΙΑΣ</h1>
+            <td>
+                <h2>ΚΑΤΑΧΩΡΗΣΗ ΑΓΓΕΛΙΑΣ</h2>
                 <br>
 
             </td>

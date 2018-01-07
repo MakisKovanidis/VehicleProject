@@ -1,9 +1,12 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Advertisement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-class AdvertisementsController extends Controller
+
+class myAdvertisementsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -12,10 +15,15 @@ class AdvertisementsController extends Controller
      */
     public function index()
     {
-        //
-        $advertisements=Advertisement::all();
-        return view('advertisements.index',['advertisements'=>$advertisements]);
+        if (Auth::check()){
+            $advertisements=Advertisement::where('user_id',Auth::user()->id)->get();
+
+            return view('myAdvertisements.index',['advertisements'=>$advertisements]);
+        }
+        return view ('auth.login');
+
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -24,8 +32,9 @@ class AdvertisementsController extends Controller
     public function create()
     {
         //
-        return view('advertisements.create');
+        return view('myAdvertisements.create');
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -55,12 +64,13 @@ class AdvertisementsController extends Controller
                 'user_id' => Auth::user()->id
             ]);
             if ($advertisement) {
-                return redirect()->route('advertisements.show', ['advertisement' => $advertisement->id])
-                    ->with('success', 'H Αγγελια καταχωρήθηκε επιτυχως');
+                return redirect()->route('myAdvertisements.show',['advertisement'=>$advertisement]);
+                    /*->with('success', 'H Αγγελια καταχωρήθηκε επιτυχως');*/
             }
         }
-        return back()->withInput()->with('errors','Προβλημα στην καραχωρηση της αγγελιας ');
+      /*  return back()->withInput()->with('errors','Προβλημα στην καραχωρηση της αγγελιας ');*/
     }
+
     /**
      * Display the specified resource.
      *
@@ -71,8 +81,9 @@ class AdvertisementsController extends Controller
     {
         //
         $advertisement=Advertisement::find($advertisement->id);
-        return view('advertisements.show',['advertisement'=>$advertisement]);
+        return view('myAdvertisements.show',['advertisement'=>$advertisement]);
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -80,10 +91,13 @@ class AdvertisementsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Advertisement $advertisement)
+
     {
         $advertisement=Advertisement::find($advertisement->id);
         return view('myAdvertisements.edit',['advertisement'=>$advertisement]);
+        //
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -93,7 +107,7 @@ class AdvertisementsController extends Controller
      */
     public function update(Request $request, Advertisement $advertisement)
     {
-        //save data
+        //
         $advertisementUpdate= Advertisement::where('id',$advertisement->id)
             ->update([
                 'title'=>$request->input('title'),
@@ -120,6 +134,7 @@ class AdvertisementsController extends Controller
         //redirect
         return back()->withInput();
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -130,11 +145,13 @@ class AdvertisementsController extends Controller
     {
         $findAdvertisement=Advertisement::find($advertisement->id);
         if($findAdvertisement->delete()){
-            return redirect()->route('advertisements.index')
+            return redirect()->route('myAdvertisements.index')
                 ->with('success','Η αγγελια διαγραφηκε επιτυχώς');
         }
         else{
             return back()->withInput()->with('errors','Η αγγελία δεν μπορει να διαγραφει');
         }
+
+
     }
 }

@@ -13,8 +13,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background: url({{ URL::asset('images/wallpaper.jpg') }}) no-repeat center center fixed;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -46,13 +45,14 @@
             }
 
             .title {
-                font-size: 84px;
+                text-align: start;
+                font-size: 120px;
             }
 
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
-                font-size: 12px;
+                font-size: 20px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -60,11 +60,22 @@
             }
 
             .m-b-md {
-                margin-bottom: 30px;
+                margin-bottom: 0px;
+            }
+
+            .myCss{
+                color: #8a6d3b;
+                padding: 0 25px;
+                font-size: 20px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-transform: uppercase;
+
             }
         </style>
     </head>
     <body>
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -79,12 +90,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Vehicle.gr
                 </div>
 
-                <div class="links">
-                    <a href="{{ url('/advertisements') }}">Documentation</a>
-                    <a href="{{ url('/advertisements/create') }}">Laracasts</a>
+                <div class="myCss">
+                    <a href="{{ url('/advertisements') }}">Δες τις αγγελιες μας</a>
                 </div>
             </div>
         </div>
