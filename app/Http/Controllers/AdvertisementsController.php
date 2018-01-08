@@ -70,6 +70,7 @@ class AdvertisementsController extends Controller
     public function show(Advertisement $advertisement)
     {
         //
+
         $advertisement=Advertisement::find($advertisement->id);
         return view('advertisements.show',['advertisement'=>$advertisement]);
     }

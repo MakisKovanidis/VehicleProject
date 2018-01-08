@@ -7,7 +7,7 @@
 
             <div class="panel-heading">{{$advertisement->title}}</div>
             <div class="panel-body">
-                <table class="col-md-9 col-lg-9 col-sm-3 list-group">
+                <table class="col-md-9 col-lg-12 col-sm-3 list-group">
                     <tr>
                         <td colspan="2" width="50%"> Μαρκα: {{$advertisement->brand}} </td>
                         <td colspan="2" width="50%"> Μοντέλο: {{$advertisement->model}}</td>
@@ -28,6 +28,14 @@
                                 <p class="text-center"><a class="btn btn-primary" href="/advertisements/{{$advertisement->id}}/edit"  role="button">Τροποποίηση</a></p>
                             </div>
                         </td>
+
+                        <td width="25%">
+                            <br>
+                            <div class="col-md-2 col-xs-2 ">
+                                <p class="text-center"><a class="btn btn-warning " href="/advertisements/{{$advertisement->id}}"  role="button">ΛΕΠΤΟΜΕΡΙΕΣ>></a></p>
+                            </div>
+                        </td>
+
                         <td width="25%">
                             <br>
                             <div class="col-md-2 col-xs-2 ">
@@ -51,7 +59,7 @@
                                 </form>
                             </div>
                         </td>
-                        <td width="50%" colspan="2"></td>
+                        <td width="25%"></td>
 
                     </tr>
                 </table>

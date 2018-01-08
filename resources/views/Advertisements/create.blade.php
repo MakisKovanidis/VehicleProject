@@ -1,23 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row col-md-12 col-lg-12 col-sm-12 bg-primary table-bordered">
-        <tr>
-            <td>
-                <h2>ΚΑΤΑΧΩΡΗΣΗ ΑΓΓΕΛΙΑΣ</h2>
-                <br>
 
-            </td>
-        </tr>
-    </div>
 
     <div class="row col-md-12 col-lg-12 col-sm-12">
         <form method="post" action="{{ route('advertisements.store')}}">
             {{ csrf_field() }}
 
             <table width="100%">
+                <tr>
 
 
+                        <td width="100%" colspan="4" class="bg-primary table-bordered">
+                            <div align="center">
+                            <h2>ΚΑΤΑΧΩΡΗΣΗ ΑΓΓΕΛΙΑΣ</h2>
+                            </div>
+                            <br>
+
+                        </td>
+
+
+                </tr>
                 <tr>
                     <td colspan="4">
                         <div class="form-group">

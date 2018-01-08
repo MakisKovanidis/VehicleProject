@@ -8,7 +8,22 @@
 
                     <input type="hidden" name="_method" value="put">
         <table width="100%">
+
             <tr>
+
+
+                <td width="100%" colspan="4" class="bg-primary table-bordered">
+                    <div align="center">
+                    <h2>ΤΡΟΠΟΠΟΙΗΣΗ ΑΓΓΕΛΙΑΣ</h2>
+                    </div>
+                    <br>
+
+                </td>
+            </tr>
+
+            <tr>
+
+
                 <td colspan="4">
                     <div class="form-group">
                         <label for="title">Τιτλος Αγγελιας<span class="required">*</span> </label>

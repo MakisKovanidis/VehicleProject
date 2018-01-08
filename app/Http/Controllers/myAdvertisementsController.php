@@ -64,8 +64,8 @@ class myAdvertisementsController extends Controller
                 'user_id' => Auth::user()->id
             ]);
             if ($advertisement) {
-                return redirect()->route('myAdvertisements.show',['advertisement'=>$advertisement]);
-                    /*->with('success', 'H Αγγελια καταχωρήθηκε επιτυχως');*/
+                return redirect()->route('myAdvertisements.show',['advertisement'=>$advertisement])
+                    ->with('success', 'H Αγγελια καταχωρήθηκε επιτυχως');
             }
         }
       /*  return back()->withInput()->with('errors','Προβλημα στην καραχωρηση της αγγελιας ');*/

@@ -17,34 +17,13 @@
                 </ul>
                 <div class="row pad">
                     <div class="col-md-2 col-xs-2 ">
-                        <p class="text-center"><a class="btn btn-primary" href="/advertisements/{{$advertisement->id}}/edit"  role="button">Τροποποίηση</a></p>
-                    </div>
-                    <div class="col-md-2 col-xs-2">
-
-                        <p class="text-center"><a class="btn btn-primary"
-                                                  href="#"
-                                                  onclick="
-                  var result = confirm('Are you sure you wish to delete this Company?');
-                      if( result ){
-                              event.preventDefault();
-                              document.getElementById('delete-form').submit();
-                      }
-                          "
-                                                  role="button" >
-                                Διαγραφή
-                            </a>
-
-                        <form id="delete-form" action="{{ route('advertisements.destroy',[$advertisement->id]) }}"
-                              method="POST" style="display: none;">
-                            <input type="hidden" name="_method" value="delete">
-                            {{ csrf_field() }}
-
-                        </form>
+                        <p class="text-center"><a class="btn btn-primary" href="{{route('advertisements.index')}}"  role="button">Επιστροφή</a></p>
                     </div>
                 </div>
-
             </div>
+
         </div>
+    </div>
     </div>
 
 
